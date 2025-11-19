@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modul hinzufügen</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input[type="number"] { width: 100px; }
+    </style>
+</head>
+<body>
+    
+    <h1>Neues Modul erfassen</h1>
+    
+    <p>Bitte geben Sie die Details des abzuschließenden Moduls ein.</p>
+
+    <form action="/add" method="post">
+        
+        <label for="name">Name des Moduls:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="creditPoints">Credit Points (ECTS):</label>
+        <input type="number" id="creditPoints" name="creditPoints" step="0.5" required><br><br>
+        
+        <label for="grade">Erreichte Note (z.B. 1.0, 2.3):</label>
+        <input type="number" id="grade" name="grade" step="0.1" required><br><br>
+        
+        <input type="submit" value="Modul speichern">
+    </form>
+    
+    <hr/>
+    <p><a href="/list">Zurück zur Modulübersicht</a></p>
+
+    <footer>
+        <small>&copy; FRA-UAS MVC Grade Calculator</small>
+    </footer>
+</body>
+</html>

@@ -1,18 +1,21 @@
 package org.cavlovic.gradeCalc.grades.model;
 
-import org.springframework.hateoas.RepresentationModel;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-
-public class SchoolModuleDTO extends RepresentationModel<SchoolModuleDTO> {
+@Entity
+public class SchoolModule {
     String name;
     Double grade;
     Double creditPoints;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
-    public SchoolModuleDTO() {
-        this.creditPoints = creditPoints;
-        this.grade = grade;
-        this.name = name;
+    public SchoolModule() {
     }
 
     
@@ -50,3 +53,5 @@ public class SchoolModuleDTO extends RepresentationModel<SchoolModuleDTO> {
 
     
 }
+
+

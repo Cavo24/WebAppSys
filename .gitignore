@@ -62,3 +62,4 @@ build
 build.log
 target
 lib/
+gradeCalc/src/main/resources/application.properties

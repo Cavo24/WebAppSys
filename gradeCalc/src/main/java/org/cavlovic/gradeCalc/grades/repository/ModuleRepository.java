@@ -1,18 +1,17 @@
 package org.cavlovic.gradeCalc.grades.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.cavlovic.gradeCalc.grades.model.SchoolModuleDTO;
-import org.slf4j.Logger;
+import org.cavlovic.gradeCalc.grades.model.SchoolModule;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-
 @Repository
-public class ModuleRepository {
-    private final Logger log= org.slf4j.LoggerFactory.getLogger(ModuleRepository.class);
+// Parameter: <Entität, Typ des Primärschlüssels>
+public interface ModuleRepository extends JpaRepository<SchoolModule, Long> {
+    // 💡 Die gesamte CRUD-Logik (save, findAll, deleteById) wird automatisch bereitgestellt!
+    
+    // Du kannst die alte ArrayList-Logik und den @PostConstruct/PreDestroy nun hier löschen.
+    
+  /*   private final Logger log= org.slf4j.LoggerFactory.getLogger(ModuleRepository.class);
     private final List<SchoolModuleDTO> modules = new ArrayList<>();
 
     Long idCounter = 0L;
@@ -23,10 +22,10 @@ public class ModuleRepository {
 
         log.debug("create sample modules and grades");
 
-        addModule (new SchoolModuleDTO(6.0, 1.3, "Software Engineering"));
-        addModule (new SchoolModuleDTO(3.0, 2.0, "Databases"));
-        addModule (new SchoolModuleDTO(3.0, 1.0, "Web Technologies"));
-        addModule (new SchoolModuleDTO(4.5, 2.3, "Operating Systems"));
+        addModule (new SchoolModuleDTO());
+        addModule (new SchoolModuleDTO());
+        addModule (new SchoolModuleDTO());
+        addModule (new SchoolModuleDTO());
         log.debug("### Data initialized ###");
     }
 
@@ -95,5 +94,5 @@ public class ModuleRepository {
         }
         
         log.warn("Repository: Replacement failed. Module with ID " + moduleId + " not found.");
-    }
+    } */
 }

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GradeCalcApplication",
+            "request": "launch",
+            "mainClass": "org.cavlovic.gradeCalc.GradeCalcApplication",
+            "projectName": "gradeCalc"
+        },
+        {
+            "type": "java",
             "name": "UserApplication",
             "request": "launch",
             "mainClass": "edu.fra.uas.UserApplication",

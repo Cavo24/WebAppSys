@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Sensible Konfigurationen ignorieren
+src/main/resources/application.properties
+src/main/resources/application.yml

@@ -1,0 +1,19 @@
+type SchoolModule {
+  id: ID!
+  name: String!
+  grade: Float!
+  creditPoints: Float!
+}
+
+type Query {
+  allModules: [SchoolModule!]!
+  moduleById(id: ID!): SchoolModule
+  averageGrade: Float!
+  totalCreditPoints: Float!
+}
+
+type Mutation {
+  addModule(name: String!, grade: Float!, creditPoints: Float!): SchoolModule!
+  updateModule(id: ID!, name: String, grade: Float, creditPoints: Float): SchoolModule
+  deleteModule(id: ID!): Boolean!
+}

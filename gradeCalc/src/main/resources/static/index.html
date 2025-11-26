@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GradeCalc - GraphQL Client</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+    .container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th { background: #f7f7f7; font-weight: bold; }
+    button { background: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .form-group { margin: 10px 0; }
+    label { display: inline-block; width: 150px; font-weight: bold; }
+    input { padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>GradeCalc - GraphQL Frontend</h1>
+
+    <h2>Module hinzufügen</h2>
+    <div>
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" id="moduleName" placeholder="z.B. Datenbanken">
+      </div>
+      <div class="form-group">
+        <label>Note (1.0 - 5.0):</label>
+        <input type="number" id="moduleGrade" step="0.1" min="1" max="5" placeholder="z.B. 2.3">
+      </div>
+      <div class="form-group">
+        <label>ECTS:</label>
+        <input type="number" id="moduleCreditPoints" step="0.5" min="0" placeholder="z.B. 5">
+      </div>
+      <button onclick="addModule()">Modul speichern</button>
+      <p id="addMessage"></p>
+    </div>
+
+    <hr/>
+
+    <h2>Modulübersicht</h2>
+    <button onclick="loadModules()">Liste aktualisieren</button>
+    <div id="statsDiv"></div>
+
+    <table id="modulesTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fachname</th>
+          <th>Note</th>
+          <th>ECTS</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="/js/graphql-client.js"></script>
+  </div>
+</body>
+</html>

@@ -1,15 +1,13 @@
 package org.cavlovic.gradeCalc.grades.model;
 
-import org.springframework.hateoas.RepresentationModel;
 
-
-public class SchoolModuleDTO extends RepresentationModel<SchoolModuleDTO> {
+public class SchoolModule{
     String name;
     Double grade;
     Double creditPoints;
     Long id;
 
-    public SchoolModuleDTO(Double creditPoints, Double grade, String name) {
+    public SchoolModule(Double creditPoints, Double grade, String name) {
         this.creditPoints = creditPoints;
         this.grade = grade;
         this.name = name;

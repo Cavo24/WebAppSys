@@ -77,6 +77,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    //prüfen, ob zwei User-Objekte gleich sind basierend auf firstName, lastName und email
     @Override
     public boolean equals(Object object) {
         if (object == null) 
@@ -106,6 +107,7 @@ public class User implements Serializable {
         return true;
     }
 
+    //prüfen, ob hashCode konsistent mit equals ist, damit gleiche Objekte gleichen hashCode haben
     @Override
     public int hashCode() {
         int hash = 7;

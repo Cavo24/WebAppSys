@@ -2,7 +2,7 @@ package org.cavlovic.gradeCalc.grades.service;
 
 import java.util.List;
 
-import org.cavlovic.gradeCalc.grades.model.SchoolModuleDTO;
+import org.cavlovic.gradeCalc.grades.model.SchoolModule;
 import org.cavlovic.gradeCalc.grades.repository.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +14,12 @@ public class GradesService {
     @Autowired
     ModuleRepository moduleRepository;
 
-    public void addToList(SchoolModuleDTO module){
+    public void addToList(SchoolModule module){
         logger.log(System.Logger.Level.INFO, "Service: Adding module " + module.getName() + " to the list");
         moduleRepository.addModule(module);
     }
 
-    public List<SchoolModuleDTO> getAllModules(){
+    public List<SchoolModule> getAllModules(){
         logger.log(System.Logger.Level.INFO, "Service: Retrieving all modules");
         return moduleRepository.getAllModules();
     }
@@ -29,7 +29,7 @@ public class GradesService {
         double totalCreditPoints = 0;
         
 
-        for (SchoolModuleDTO module : moduleRepository.getAllModules()) {
+        for (SchoolModule module : moduleRepository.getAllModules()) {
             totalWeightedGrades +=  module.getGrade()* module.getCreditPoints();
             totalCreditPoints += module.getCreditPoints();
         }
@@ -45,7 +45,7 @@ public class GradesService {
     public double calculateTotalCreditPoints() {
         double totalCreditPoints = 0;
 
-        for (SchoolModuleDTO module : moduleRepository.getAllModules()) {
+        for (SchoolModule module : moduleRepository.getAllModules()) {
             totalCreditPoints += module.getCreditPoints();
         }
 
@@ -57,9 +57,9 @@ public class GradesService {
         moduleRepository.deleteModule(index);
     }
 
-    public SchoolModuleDTO getModuleById(Long moduleId) {
+    public SchoolModule getModuleById(Long moduleId) {
         logger.log(System.Logger.Level.INFO, "Service: Retrieving module by ID " + moduleId);
-        for (SchoolModuleDTO module : moduleRepository.getAllModules()) {
+        for (SchoolModule module : moduleRepository.getAllModules()) {
             if (module.getId().equals(moduleId)) {
                 return module;
             }
@@ -67,7 +67,7 @@ public class GradesService {
         return null; // Return null if not found
     }
 
-   public void replaceModule(Long moduleId, SchoolModuleDTO updatedModule) {
+   public void replaceModule(Long moduleId, SchoolModule updatedModule) {
         logger.log(System.Logger.Level.INFO, "Service: Replacing module with ID " + moduleId);
         moduleRepository.replaceModule(moduleId, updatedModule);
         
